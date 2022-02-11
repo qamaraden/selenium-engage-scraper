@@ -42,16 +42,19 @@ if any(error_message in e.text for e in errors):
     print("[!] Login failed")
 else:
     print("[+] Login successful")
-#driver.find_element_by_xpath("//span[contains(.,'Side Panel'").click()
+    
 driver.implicitly_wait(20)
 driver.maximize_window
+driver.find_element_by_xpath("/html/body/div[2]/nav/div/button").click()
+driver.implicitly_wait(10)
 driver.find_element_by_xpath("//span[contains(.,'Software Engineering 1 - November 2021')]").click()
+driver.implicitly_wait(10)
 driver.find_element_by_xpath("/html/body/div[1]/div[3]/nav[1]/ul/li[4]/a/div/div/span[2]").click()
-# Thread.sleep(1000);
+
 check = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/section[1]/div[1]/table/tbody/tr[3]/td[1]")
-print(check.text)
+# print(check.text)
 
 if (check.text == '-'):
     print("No new results")
 else:
-    print("Grade is up")
+    print("Grades are up")
