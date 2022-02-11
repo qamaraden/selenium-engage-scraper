@@ -1,9 +1,12 @@
 from selenium import webdriver
 import os
 from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
-driver = webdriver.Chrome(ChromeDriverManager().install())
+options = Options()
+options.headless = True
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 
 # Github credentials
 username = os.getenv("username")
