@@ -4,13 +4,18 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 
-options = Options()
-options.headless = True
-driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+def get_options():
+    chrome_options = Options()
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--headless")
+    return chrome_options
+
+driver = webdriver.Chrome(ChromeDriverManager().install(), options=get_options())
 
 # Github credentials
-username = os.getenv("username")
-password = os.getenv("username")
+username = os.getenv('username')
+password = os.getenc('password')
 
 
 # head to github login page
@@ -48,5 +53,10 @@ if (check.text == '-'):
     print("No new results")
 else:
     print("Grade is up")
+
+# if (check.text == '-'):
+#     print("No new results")
+# else:
+#     print("Grade is up")
 
 #driver.find_element(xpath("//span[contains(@class,'media-body') and contains(text()
