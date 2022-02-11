@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "sudo apt-get update && sudo apt-get install python3-distutils -y && wget https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py && python3 -m pip install selenium && pip install selenium && python3 grades.py"
+          command: "sudo apt-get update && sudo apt-get install python3-distutils -y && wget https://bootstrap.pypa.io/get-pip.py && sudo python3 get-pip.py && python3 -m pip install selenium && python3 -m pip install webdriver_manager&&pip install selenium && python3 grades.py"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
