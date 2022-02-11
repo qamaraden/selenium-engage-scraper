@@ -77,6 +77,5 @@ check = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/section[1
 
 if (check.text == '-'):
     print("No new results")
-    slack_alert(":white_check_mark: Grades are not up on Engage", "green")
 else:
     slack_alert(":white_check_mark: Grades are up on Engage", "green")
