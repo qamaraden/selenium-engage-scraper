@@ -1,12 +1,13 @@
 from selenium import webdriver
+import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.support.ui import WebDriverWait
 
 driver = webdriver.Chrome(ChromeDriverManager().install())
 
 # Github credentials
-username = ""
-password = ""
+username = os.getenv("username")
+password = os.getenv("username")
 
 
 # head to github login page
