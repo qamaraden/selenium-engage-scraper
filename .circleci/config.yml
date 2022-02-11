@@ -16,7 +16,7 @@ jobs:
       - checkout
       - run:
           name: "Say hello"
-          command: "pip install selenium && python3 grades.py"
+          command: "wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && python3 -m pip install selenium && pip install selenium && python3 grades.py"
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
