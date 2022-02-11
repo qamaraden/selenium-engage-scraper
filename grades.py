@@ -79,3 +79,5 @@ if (check.text == '-'):
     print("No new results")
 else:
     slack_alert(":white_check_mark: Grades are up on Engage", "green")
+ 
+driver.close()
