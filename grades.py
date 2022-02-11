@@ -3,6 +3,27 @@ import os
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
+import requests
+import json
+import os
+
+def slack_alert(title, colour):
+
+    uri = os.getenv("SLACK_WEBHOOK")
+    data = {
+        "blocks": [
+            {
+                "type": "header",
+                "text": {
+                    "type": "plain_text",
+                    "text": title
+                }
+            }
+        ]
+    }
+    r = requests.post(uri, json.dumps(data)).content
+    if r == "b'ok'":
+        print("Successfully posted to Slack")
 
 def get_options():
     chrome_options = Options()
@@ -56,5 +77,6 @@ check = driver.find_element_by_xpath("/html/body/div[1]/div[2]/div/div/section[1
 
 if (check.text == '-'):
     print("No new results")
+    slack_alert(":white_check_mark: Grades are not up on Engage", "green")
 else:
-    print("Grades are up")
+    slack_alert(":white_check_mark: Grades are up on Engage", "green")
