@@ -42,7 +42,7 @@ if any(error_message in e.text for e in errors):
     print("[!] Login failed")
 else:
     print("[+] Login successful")
-driver.find_element_by_xpath("//span[contains(.,'Side Panel'").click()
+#driver.find_element_by_xpath("//span[contains(.,'Side Panel'").click()
 driver.find_element_by_xpath("//span[contains(.,'Software Engineering 1 - November 2021')]").click()
 driver.find_element_by_xpath("/html/body/div[1]/div[3]/nav[1]/ul/li[4]/a/div/div/span[2]").click()
 # Thread.sleep(1000);
