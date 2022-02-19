@@ -6,6 +6,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 import requests
 import json
 import os
+import http.client
+
+conn = http.client.HTTPSConnection("circleci.com")
+
+payload = "{\"name\":\"SLACK_WEBHOOK\",\"value\":\"nothing\"}"
+
+headers = {
+    'content-type': "application/json",
+    'Circle-Token': "ddc0b819e834ae280db11828eca01f03031775ee"
+    }
 
 def slack_alert(title, colour):
 
@@ -79,5 +89,9 @@ if (check.text == '-'):
     print("No new results")
 else:
     slack_alert(":white_check_mark: Grades are up on Engage", "green")
+    conn.request("POST", "/api/v2/project/gh/qamaraden/selenium-engage-scraper/envvar", payload, headers)
+    res = conn.getresponse()
+    data = res.read()
+    print(data.decode("utf-8"))
  
 driver.close()
