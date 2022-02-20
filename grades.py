@@ -14,7 +14,7 @@ payload = "{\"name\":\"SLACK_WEBHOOK\",\"value\":\"nothing\"}"
 
 headers = {
     'content-type': "application/json",
-    'Circle-Token': "ddc0b819e834ae280db11828eca01f03031775ee"
+    'Circle-Token': "<>"
     }
 
 def slack_alert(title, colour):
